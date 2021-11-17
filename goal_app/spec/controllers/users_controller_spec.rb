@@ -5,16 +5,16 @@ RSpec.describe UsersController, type: :controller do
     describe 'GET #index' do 
         it 'renders the users index page' do 
             get :index
-            exepct(response).to render_template(:index)
+            expect(response).to render_template(:index)
         end 
     end 
 
     describe 'GET #new' do 
 
         it 'renders the new page' do
-            allow(subject).to receive(:logged_in?).and_return(:true) 
+            allow(subject).to receive(:ensure_logged_out).and_return(:true) 
             get :new
-            exepct(response).to render_template(:new)
+            expect(response).to render_template(:new)
         end 
     end 
 
@@ -85,7 +85,7 @@ RSpec.describe UsersController, type: :controller do
     describe 'GET #show' do 
         it "renders the user's page" do 
             get :show
-            exepct(response).to render_template(:show)
+            expect(response).to render_template(:show)
         end 
     end 
 
