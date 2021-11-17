@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
     def reset_session_token!
         self.session_token = generate_session_token
-        session[:session_token] = nil
+        self.save!
         self.session_token
     end
 
